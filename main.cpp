@@ -806,7 +806,7 @@ int main() {
     	
 	}
 	else{
-		cout <<"Sai ten tai khoan hoac mat khau! Moi nhap lai\n";
+		cout <<"Sai ten tai khoan hoac mat khau! Moi nhap lai: \n";
 	}
 	}
     
