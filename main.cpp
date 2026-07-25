@@ -792,7 +792,28 @@ public:
 };
 
 int main() {
+  string tentaikhoan;
+	string matkhau;
+	
     QuanLyLuong chuongTrinh;
+    do{ 
+    cout <<"Moi nhap ten tai khoan: ";
+    cin >> tentaikhoan;
+    cout << "Moi nhap mat khau: ";
+    cin >> matkhau;
+    if(tentaikhoan == "huy" && matkhau == "061106"){
+    	chuongTrinh.chayChuongTrinh();
+    	
+	}
+	else{
+		cout <<"Sai ten tai khoan hoac mat khau! Moi nhap lai/n";
+	}
+	}
+    
+    while(tentaikhoan != "huy" || matkhau != "061106");
+    	
+	
+    
     chuongTrinh.chayChuongTrinh();
 
     return 0;
