@@ -518,18 +518,30 @@ public:
         }
     }
 
-    void tinhLuongTatCa() {
+   void xuatBangLuong() {
         if (soLuong == 0) {
             cout << "Danh sach rong.\n";
             return;
         }
 
+        ofstream fileOut("bangluong.csv");
+        fileOut << "\xEF\xBB\xBF";
+        fileOut << "ID,Ho ten,Phong ban,Loai,Luong CB,Ngay cong,Tong luong\n";
+
         for (int i = 0; i < soLuong; i++) {
-            danhSach[i].tinhLuong();
+            fileOut << danhSach[i].getID() << ","
+                    << danhSach[i].getHoTen() << ","
+                    << danhSach[i].getPhongBan() << ","
+                    << danhSach[i].tenLoaiNhanVien() << ","
+                    << danhSach[i].getLuongCoBan() << ","
+                    << danhSach[i].getSoNgayCong() << ","
+                    << danhSach[i].tinhLuong() << "\n";
         }
 
-        cout << "Da tinh luong cho tat ca nhan vien.\n";
+        fileOut.close();
+        cout << "Da xuat bang luong ra file bangluong.csv.\n";
     }
+
 
     void sapXepTheoTen() {
         for (int i = 0; i < soLuong - 1; i++) {
@@ -733,7 +745,7 @@ public:
         cout << "3. Xoa nhan vien\n";
         cout << "4. Tim kiem nhan vien\n";
         cout << "5. Hien thi danh sach\n";
-        cout << "6. Tinh luong tat ca nhan vien\n";
+        cout << "6. Xuat bang luong\n";
         cout << "7. Sap xep danh sach\n";
         cout << "8. Thong ke\n";
         cout << "9. Luu file\n";
@@ -761,7 +773,7 @@ public:
             } else if (luaChon == 5) {
                 hienThiDanhSach();
             } else if (luaChon == 6) {
-                tinhLuongTatCa();
+                xuatBangLuong();
             } else if (luaChon == 7) {
                 menuSapXep();
             } else if (luaChon == 8) {
